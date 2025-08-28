@@ -7,10 +7,23 @@ for (const heart of hearts) {
     const addHeart = availableHeart + 1;
     const newHeart = (document.getElementById("live_heart").innerText =
       addHeart);
-    console.log(newHeart);
   });
 }
 // ! end improve heart count section
+
+// ! start copy btn click function
+const copys = document.querySelectorAll(".copy_btn");
+for (const copy of copys) {
+  copy.addEventListener("click", function () {
+    const availableCopy = parseInt(
+      document.getElementById("copy_number").innerText
+    );
+    const addCopy = availableCopy + 1;
+    const newHeart = (document.getElementById("copy_number").innerText =
+      addCopy);
+  });
+}
+// ! end copy btn click function
 
 // ? call btn click function
 const history = [];
@@ -24,9 +37,12 @@ function getNumberValue(id, serviceName, serviceNumber) {
     return;
   }
   const removeCoin = availableCoin - 20;
-  const newAvailableCoin = (document.getElementById(id).innerText = removeCoin);
+  document.getElementById(id).innerText = removeCoin;
   alert("📞 calling " + serviceName + "    " + serviceNumber);
+  historyFunction()
+}
 
+function historyFunction() {
   const historyContainer = document.getElementById("history_container");
   historyContainer.innerText = "";
   for (const data of history) {
@@ -42,9 +58,15 @@ function getNumberValue(id, serviceName, serviceNumber) {
               </div>
             </div>
             `;
-    historyContainer.appendChild(div);
+            historyContainer.appendChild(div)
   }
 }
+
+   
+document.getElementById("clear_btn").addEventListener("click",function(){
+  history.length = 0;
+  document.getElementById("history_container").innerHTML = "";
+  })
 
 // ! start call btn function
 // * National Emergency
@@ -77,7 +99,6 @@ document
     const serviceName = document.getElementById("service_name_2").innerText;
     const serviceNumber = document.getElementById("service_number_2").innerText;
     getNumberValue("live_coin", serviceName, serviceNumber);
-
   });
 
 // * Fire Service
@@ -94,10 +115,9 @@ document
     const serviceName = document.getElementById("service_name_3").innerText;
     const serviceNumber = document.getElementById("service_number_3").innerText;
     getNumberValue("live_coin", serviceName, serviceNumber);
-
   });
 
-  // * অ্যাম্বুলেন্স
+// * অ্যাম্বুলেন্স
 document
   .getElementById("call_btn_card_4")
   .addEventListener("click", function () {
@@ -111,10 +131,9 @@ document
     const serviceName = document.getElementById("service_name_4").innerText;
     const serviceNumber = document.getElementById("service_number_4").innerText;
     getNumberValue("live_coin", serviceName, serviceNumber);
-
   });
 
-    // * নারী ও শিশু সহায়তা
+// * নারী ও শিশু সহায়তা
 document
   .getElementById("call_btn_card_5")
   .addEventListener("click", function () {
@@ -128,11 +147,9 @@ document
     const serviceName = document.getElementById("service_name_5").innerText;
     const serviceNumber = document.getElementById("service_number_5").innerText;
     getNumberValue("live_coin", serviceName, serviceNumber);
-
   });
-  
 
-      // * দুদক
+// * দুদক
 document
   .getElementById("call_btn_card_6")
   .addEventListener("click", function () {
@@ -146,11 +163,9 @@ document
     const serviceName = document.getElementById("service_name_6").innerText;
     const serviceNumber = document.getElementById("service_number_6").innerText;
     getNumberValue("live_coin", serviceName, serviceNumber);
-
   });
 
-
-   // * বিদ্যুৎ বিভ্রাট
+// * বিদ্যুৎ বিভ্রাট
 document
   .getElementById("call_btn_card_7")
   .addEventListener("click", function () {
@@ -164,10 +179,9 @@ document
     const serviceName = document.getElementById("service_name_7").innerText;
     const serviceNumber = document.getElementById("service_number_7").innerText;
     getNumberValue("live_coin", serviceName, serviceNumber);
-
   });
 
-   // * ব্র্যাক
+// * ব্র্যাক
 document
   .getElementById("call_btn_card_8")
   .addEventListener("click", function () {
@@ -181,11 +195,9 @@ document
     const serviceName = document.getElementById("service_name_8").innerText;
     const serviceNumber = document.getElementById("service_number_8").innerText;
     getNumberValue("live_coin", serviceName, serviceNumber);
-
   });
 
-
-   // * বাংলাদেশ রেলওয়ে
+// * বাংলাদেশ রেলওয়ে
 document
   .getElementById("call_btn_card_9")
   .addEventListener("click", function () {
@@ -199,5 +211,28 @@ document
     const serviceName = document.getElementById("service_name_9").innerText;
     const serviceNumber = document.getElementById("service_number_9").innerText;
     getNumberValue("live_coin", serviceName, serviceNumber);
-
   });
+
+ document.addEventListener("click", async (element) => {
+            if(!element.target.matches(".copy_btn")) return;
+            const card = element.target.closest(".card");
+            const textEl = card.querySelector(".service_number");
+            const text = textEl ? textEl.innerText.trim() : '';
+            if(!text) {
+                return;
+            }
+            
+            const originalLabel = element.target.textContent;
+            
+            try {
+                await navigator.clipboard.writeText(text);
+                element.target.classList.add('copied');
+                
+                    element.target.textContent = originalLabel;
+                    element.target.classList.remove('copied');
+            
+                
+            } catch (err) {
+                console.error(err);
+            }
+        });
