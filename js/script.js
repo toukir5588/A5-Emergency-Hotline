@@ -31,7 +31,7 @@ function getNumberValue(id, serviceName, serviceNumber) {
   historyContainer.innerText = "";
   for (const data of history) {
     const div = document.createElement("div");
-    div.innerHTML = `<div id="history_child" class="flex justify-between items-center bg-[#e4e4e4c7] p-3 my-1.5 rounded-md">
+    div.innerHTML = `<div id="history_child" class="flex justify-between items-center bg-[#e4e4e4c7] p-3 my-2 rounded-md">
               <div id="history_name">
                 <h1>${data.name}</h1>
                 <h2>${data.phone}</h2>
@@ -46,7 +46,8 @@ function getNumberValue(id, serviceName, serviceNumber) {
   }
 }
 
-// ! start remove 20 coin section
+// ! start call btn function
+// * National Emergency
 document
   .getElementById("call_btn_card_1")
   .addEventListener("click", function () {
@@ -62,6 +63,7 @@ document
     getNumberValue("live_coin", serviceName, serviceNumber);
   });
 
+// * Police
 document
   .getElementById("call_btn_card_2")
   .addEventListener("click", function () {
@@ -76,5 +78,126 @@ document
     const serviceNumber = document.getElementById("service_number_2").innerText;
     getNumberValue("live_coin", serviceName, serviceNumber);
 
-    // console.log(history);
+  });
+
+// * Fire Service
+document
+  .getElementById("call_btn_card_3")
+  .addEventListener("click", function () {
+    const data = {
+      name: "ফায়ার সার্ভিস",
+      phone: "999",
+      date: new Date().toLocaleTimeString(),
+    };
+    history.push(data);
+
+    const serviceName = document.getElementById("service_name_3").innerText;
+    const serviceNumber = document.getElementById("service_number_3").innerText;
+    getNumberValue("live_coin", serviceName, serviceNumber);
+
+  });
+
+  // * অ্যাম্বুলেন্স
+document
+  .getElementById("call_btn_card_4")
+  .addEventListener("click", function () {
+    const data = {
+      name: "অ্যাম্বুলেন্স",
+      phone: "1994-999999",
+      date: new Date().toLocaleTimeString(),
+    };
+    history.push(data);
+
+    const serviceName = document.getElementById("service_name_4").innerText;
+    const serviceNumber = document.getElementById("service_number_4").innerText;
+    getNumberValue("live_coin", serviceName, serviceNumber);
+
+  });
+
+    // * নারী ও শিশু সহায়তা
+document
+  .getElementById("call_btn_card_5")
+  .addEventListener("click", function () {
+    const data = {
+      name: "নারী ও শিশু সহায়তা",
+      phone: "109",
+      date: new Date().toLocaleTimeString(),
+    };
+    history.push(data);
+
+    const serviceName = document.getElementById("service_name_5").innerText;
+    const serviceNumber = document.getElementById("service_number_5").innerText;
+    getNumberValue("live_coin", serviceName, serviceNumber);
+
+  });
+  
+
+      // * দুদক
+document
+  .getElementById("call_btn_card_6")
+  .addEventListener("click", function () {
+    const data = {
+      name: "দুদক",
+      phone: "106",
+      date: new Date().toLocaleTimeString(),
+    };
+    history.push(data);
+
+    const serviceName = document.getElementById("service_name_6").innerText;
+    const serviceNumber = document.getElementById("service_number_6").innerText;
+    getNumberValue("live_coin", serviceName, serviceNumber);
+
+  });
+
+
+   // * বিদ্যুৎ বিভ্রাট
+document
+  .getElementById("call_btn_card_7")
+  .addEventListener("click", function () {
+    const data = {
+      name: "বিদ্যুৎ বিভ্রাট",
+      phone: "16216",
+      date: new Date().toLocaleTimeString(),
+    };
+    history.push(data);
+
+    const serviceName = document.getElementById("service_name_7").innerText;
+    const serviceNumber = document.getElementById("service_number_7").innerText;
+    getNumberValue("live_coin", serviceName, serviceNumber);
+
+  });
+
+   // * ব্র্যাক
+document
+  .getElementById("call_btn_card_8")
+  .addEventListener("click", function () {
+    const data = {
+      name: "ব্র্যাক",
+      phone: "16445",
+      date: new Date().toLocaleTimeString(),
+    };
+    history.push(data);
+
+    const serviceName = document.getElementById("service_name_8").innerText;
+    const serviceNumber = document.getElementById("service_number_8").innerText;
+    getNumberValue("live_coin", serviceName, serviceNumber);
+
+  });
+
+
+   // * বাংলাদেশ রেলওয়ে
+document
+  .getElementById("call_btn_card_9")
+  .addEventListener("click", function () {
+    const data = {
+      name: "বাংলাদেশ রেলওয়ে",
+      phone: "163",
+      date: new Date().toLocaleTimeString(),
+    };
+    history.push(data);
+
+    const serviceName = document.getElementById("service_name_9").innerText;
+    const serviceNumber = document.getElementById("service_number_9").innerText;
+    getNumberValue("live_coin", serviceName, serviceNumber);
+
   });

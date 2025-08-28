@@ -31,9 +31,10 @@
 
       }
 
-      button{
+      button, .fa-heart{
         cursor: pointer;
       }
+
     </style>
     <!-- !css link -->
     <link rel="stylesheet" href="./stlye.css" />
@@ -181,11 +182,11 @@
 
               <div class="mt-4">
                 <h1 class="text-2xl font-bold">ফায়ার সার্ভিস</h1>
-                <p class="text-[#5C5C5C]">Fire Service</p>
+                <p id="service_name_3" class="text-[#5C5C5C]">Fire Service</p>
               </div>
 
               <div class="my-6">
-                <h1 class="text-3xl font-bold mb-2">999</h1>
+                <h1 id="service_number_3" class="text-3xl font-bold mb-2">999</h1>
                 <p
                   class="text-[#5C5C5C] bg-[#D4D6D5] rounded-full px-3 py-1 inline-block"
                 >
@@ -218,11 +219,11 @@
 
               <div class="mt-4">
                 <h1 class="text-2xl font-bold">অ্যাম্বুলেন্স</h1>
-                <p class="text-[#5C5C5C]">Ambulance</p>
+                <p id="service_name_4"  class="text-[#5C5C5C]">Ambulance</p>
               </div>
 
               <div class="my-6">
-                <h1 class="text-3xl font-bold mb-2">1994-999999</h1>
+                <h1 id="service_number_4" class="text-3xl font-bold mb-2">1994-999999</h1>
                 <p
                   class="text-[#5C5C5C] bg-[#D4D6D5] rounded-full px-3 py-1 inline-block"
                 >
@@ -255,11 +256,11 @@
 
               <div class="mt-4">
                 <h1 class="text-2xl font-bold">নারী ও শিশু সহায়তা</h1>
-                <p class="text-[#5C5C5C]">Women & Child Helpline</p>
+                <p id="service_name_5" class="text-[#5C5C5C]">Women & Child Helpline</p>
               </div>
 
               <div class="my-6">
-                <h1 class="text-3xl font-bold mb-2">109</h1>
+                <h1 id="service_number_5" class="text-3xl font-bold mb-2">109</h1>
                 <p
                   class="text-[#5C5C5C] bg-[#D4D6D5] rounded-full px-3 py-1 inline-block"
                 >
@@ -292,11 +293,11 @@
 
               <div class="mt-4">
                 <h1 class="text-2xl font-bold">দুদক </h1>
-                <p class="text-[#5C5C5C]">Anti-Corruption</p>
+                <p id="service_name_6" class="text-[#5C5C5C]">Anti-Corruption</p>
               </div>
 
               <div class="my-6">
-                <h1 class="text-3xl font-bold mb-2">106</h1>
+                <h1 id="service_number_6" class="text-3xl font-bold mb-2">106</h1>
                 <p
                   class="text-[#5C5C5C] bg-[#D4D6D5] rounded-full px-3 py-1 inline-block"
                 >
@@ -329,11 +330,11 @@
 
               <div class="mt-4">
                 <h1 class="text-2xl font-bold">বিদ্যুৎ বিভ্রাট </h1>
-                <p class="text-[#5C5C5C]">Electricity Outage</p>
+                <p id="service_name_7" class="text-[#5C5C5C]">Electricity Outage</p>
               </div>
 
               <div class="my-6">
-                <h1 class="text-3xl font-bold mb-2">16216</h1>
+                <h1 id="service_number_7" class="text-3xl font-bold mb-2">16216</h1>
                 <p
                   class="text-[#5C5C5C] bg-[#D4D6D5] rounded-full px-3 py-1 inline-block"
                 >
@@ -367,11 +368,11 @@
 
               <div class="mt-4">
                 <h1 class="text-2xl font-bold">ব্র্যাক </h1>
-                <p class="text-[#5C5C5C]">Brac</p>
+                <p id="service_name_8" class="text-[#5C5C5C]">Brac</p>
               </div>
 
               <div class="my-6">
-                <h1 class="text-3xl font-bold mb-2">16445</h1>
+                <h1 id="service_number_8" class="text-3xl font-bold mb-2">16445</h1>
                 <p
                   class="text-[#5C5C5C] bg-[#D4D6D5] rounded-full px-3 py-1 inline-block"
                 >
@@ -405,11 +406,11 @@
 
               <div class="mt-4">
                 <h1 class="text-2xl font-bold">বাংলাদেশ রেলওয়ে </h1>
-                <p class="text-[#5C5C5C]">Bangladesh Railway</p>
+                <p id="service_name_9" class="text-[#5C5C5C]">Bangladesh Railway</p>
               </div>
 
               <div class="my-6">
-                <h1 class="text-3xl font-bold mb-2">163</h1>
+                <h1 id="service_number_9" class="text-3xl font-bold mb-2">163</h1>
                 <p
                   class="text-[#5C5C5C] bg-[#D4D6D5] rounded-full px-3 py-1 inline-block"
                 >
@@ -431,7 +432,7 @@
           </div>
 
           <!-- * site bar div -->
-          <div class="shadow-md bg-white p-7 rounded-xl min-h-80 lg:w-[24%] ">
+          <div class="shadow-md  bg-white p-7 rounded-xl min-h-80 lg:w-[24%] ">
            <!-- * heading -->
             <div class="flex justify-between gap-5">
               <span><i class="fa-regular fa-clock"></i> Call History</span>
