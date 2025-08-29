@@ -12,17 +12,44 @@ for (const heart of hearts) {
 // ! end improve heart count section
 
 // ! start copy btn click function
-const copys = document.querySelectorAll(".copy_btn");
-for (const copy of copys) {
-  copy.addEventListener("click", function () {
-    const availableCopy = parseInt(
-      document.getElementById("copy_number").innerText
-    );
+document.addEventListener("click", async (element) => {
+  if (!element.target.matches(".copy_btn")) return;
+  const card = element.target.closest(".card");
+  const textEl = card.querySelector(".service_number");
+  const text = textEl ? textEl.innerText.trim() : "";
+  if (!text) {
+    return;
+  }
+
+  const originalLabel = element.target.textContent;
+
+  try {
+    await navigator.clipboard.writeText(text);
+    alert("✅ নাম্বার কপি হয়েছে  " + text);
+    // element.target.classList.add('copied');
+
+    //     element.target.textContent = originalLabel;
+    //     element.target.classList.remove('copied');
+    const copyNumberElement = document.getElementById("copy_number");
+    const availableCopy = parseInt(copyNumberElement.innerText);
     const addCopy = availableCopy + 1;
-    const newHeart = (document.getElementById("copy_number").innerText =
-      addCopy);
-  });
-}
+    copyNumberElement.innerText = addCopy;
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+// const copys = document.querySelectorAll(".copy_btn");
+// for (const copy of copys) {
+//   copy.addEventListener("click", function () {
+//     const availableCopy = parseInt(
+//       document.getElementById("copy_number").innerText
+//     );
+//     const addCopy = availableCopy + 1;
+//     const newHeart = (document.getElementById("copy_number").innerText =
+//       addCopy);
+//   });
+// }
 // ! end copy btn click function
 
 // ? call btn click function
@@ -33,13 +60,13 @@ function getNumberValue(id, serviceName, serviceNumber) {
   const convertToNumber = parseInt(element);
   const availableCoin = convertToNumber;
   if (availableCoin < 20) {
-    alert("❌ আপনার পর্যাপ্ত কয়েন নেই");
+    alert("❌ আপনার পর্যাপ্ত কয়েন নেই, কল করতে কমপক্ষে 20 কয়েন লাগবে ");
     return;
   }
   const removeCoin = availableCoin - 20;
   document.getElementById(id).innerText = removeCoin;
   alert("📞 calling " + serviceName + "    " + serviceNumber);
-  historyFunction()
+  historyFunction();
 }
 
 function historyFunction() {
@@ -58,15 +85,14 @@ function historyFunction() {
               </div>
             </div>
             `;
-            historyContainer.appendChild(div)
+    historyContainer.appendChild(div);
   }
 }
 
-   
-document.getElementById("clear_btn").addEventListener("click",function(){
+document.getElementById("clear_btn").addEventListener("click", function () {
   history.length = 0;
   document.getElementById("history_container").innerHTML = "";
-  })
+});
 
 // ! start call btn function
 // * National Emergency
@@ -212,27 +238,3 @@ document
     const serviceNumber = document.getElementById("service_number_9").innerText;
     getNumberValue("live_coin", serviceName, serviceNumber);
   });
-
- document.addEventListener("click", async (element) => {
-            if(!element.target.matches(".copy_btn")) return;
-            const card = element.target.closest(".card");
-            const textEl = card.querySelector(".service_number");
-            const text = textEl ? textEl.innerText.trim() : '';
-            if(!text) {
-                return;
-            }
-            
-            const originalLabel = element.target.textContent;
-            
-            try {
-                await navigator.clipboard.writeText(text);
-                element.target.classList.add('copied');
-                
-                    element.target.textContent = originalLabel;
-                    element.target.classList.remove('copied');
-            
-                
-            } catch (err) {
-                console.error(err);
-            }
-        });
